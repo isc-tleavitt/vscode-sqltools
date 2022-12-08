@@ -26,6 +26,8 @@ export default class IntellisensePlugin<T extends ILanguageServer> implements IL
     const currentWord = (queryTokens.pop() || '').trim().toUpperCase();
 
     const conn = activeConnections[lastUsedId];
+    log.info(`active connections: ${activeConnections.length}; last used key: ${lastUsedId}`);
+    log.info(`using connection ${JSON.stringify(conn)}`);
     let completionDialect: string;
 
     // @REVIEW check intellisense dialect
